@@ -1,0 +1,22 @@
+# author.graphqls
+
+type Author {
+  id: Int!
+  name: String!
+  books: [Book!]
+}
+
+input AuthorInput {
+  name: String!
+}
+
+extend type Query {
+  getAllAuthors: [Author!]!
+  getAuthor(id: Int!): Author
+}
+
+extend type Mutation {
+  createAuthor(input: AuthorInput!): Author!
+  updateAuthor(id: Int!, input: AuthorInput!): Author!
+  deleteAuthor(id: Int!): Boolean!
+}
