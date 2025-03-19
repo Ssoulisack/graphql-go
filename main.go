@@ -2,12 +2,12 @@ package main
 
 import (
 	"fmt"
+	"go-fiber/api/graph/resolver"
 	"go-fiber/api/routes"
 	"go-fiber/bootstrap"
 	"log"
 )
 
-const defaultPort = "8080"
 
 func main() {
 	// Initialize the Fiber application
@@ -20,10 +20,10 @@ func main() {
 	routes.Setup(fiber, db)
 
 	// Call InitializeServices to get resolver
-	resolver := routes.InitializeServices(db)
+	resolver := resolver.InitializeServices(db)
 
 	// Setup GraphQL routes
-	routes.GraphQLRoutes(fiber, resolver)
+	routes.SetupGraphQL(fiber, resolver)
 
 	log.Fatal(fiber.Listen(fmt.Sprintf(":%d", globalEnv.App.Port)))
 

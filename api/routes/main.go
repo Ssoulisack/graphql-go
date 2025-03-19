@@ -22,7 +22,7 @@ func Setup(app *fiber.App, db *gorm.DB) {
 }
 
 // GraphQLRoutes sets up GraphQL routes for Fiber// GraphQLRoutes sets up the GraphQL routes
-func GraphQLRoutes(app *fiber.App, res *resolver.Resolver) {
+func SetupGraphQL(app *fiber.App, res *resolver.Resolver) {
 	routes := app.Group("/api/v1", func(c *fiber.Ctx) error {
 		return c.Next()
 	})
