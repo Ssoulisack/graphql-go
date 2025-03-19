@@ -15,6 +15,8 @@ type Resolver struct {
 	authorSvc services.AuthorService
 	bookSvc   services.BookService
 }
+type mutationResolver struct{ *Resolver }
+type queryResolver struct{ *Resolver }
 // NewResolver creates a new Resolver instance
 func NewResolver(authorSvc services.AuthorService, bookSvc services.BookService) *Resolver {
 	return &Resolver{authorSvc, bookSvc}
