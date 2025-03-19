@@ -7,7 +7,6 @@ package resolver
 import (
 	"context"
 	"fmt"
-	generated "go-fiber/api/graph/generated"
 	"go-fiber/api/graph/model"
 	"go-fiber/domain/entities"
 )
@@ -62,9 +61,3 @@ func (r *queryResolver) GetAllAuthors(ctx context.Context) ([]*model.Author, err
 func (r *queryResolver) GetAuthor(ctx context.Context, id int32) (*model.Author, error) {
 	panic(fmt.Errorf("not implemented: GetAuthor - getAuthor"))
 }
-
-// Mutation returns generated.MutationResolver implementation.
-func (r *Resolver) Mutation() generated.MutationResolver { return &mutationResolver{r} }
-
-// Query returns generated.QueryResolver implementation.
-func (r *Resolver) Query() generated.QueryResolver { return &queryResolver{r} }
