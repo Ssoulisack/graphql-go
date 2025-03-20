@@ -11,7 +11,6 @@ import (
 	"go-fiber/domain/entities"
 )
 
-
 // CreateAuthor is the resolver for the createAuthor field.
 func (r *mutationResolver) CreateAuthor(ctx context.Context, input model.AuthorInput) (*model.Author, error) {
 	author := &entities.Author{
